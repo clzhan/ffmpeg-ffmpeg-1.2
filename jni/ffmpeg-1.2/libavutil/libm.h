@@ -49,14 +49,14 @@
 #endif
 
 #if !HAVE_CBRT
-static av_always_inline double cbrt(double x)
+ av_always_inline double cbrt(double x)
 {
     return x < 0 ? -pow(-x, 1.0 / 3.0) : pow(x, 1.0 / 3.0);
 }
 #endif
 
 #if !HAVE_CBRTF
-static av_always_inline float cbrtf(float x)
+av_always_inline float cbrtf(float x)
 {
     return x < 0 ? -powf(-x, 1.0 / 3.0) : powf(x, 1.0 / 3.0);
 }
@@ -83,7 +83,7 @@ static av_always_inline float cbrtf(float x)
 #endif /* HAVE_EXP2F */
 
 #if !HAVE_ISINF
-static av_always_inline av_const int isinf(float x)
+av_always_inline av_const int isinf(float x)
 {
     uint32_t v = av_float2int(x);
     if ((v & 0x7f800000) != 0x7f800000)
@@ -93,7 +93,7 @@ static av_always_inline av_const int isinf(float x)
 #endif /* HAVE_ISINF */
 
 #if !HAVE_ISNAN
-static av_always_inline av_const int isnan(float x)
+av_always_inline av_const int isnan(float x)
 {
     uint32_t v = av_float2int(x);
     if ((v & 0x7f800000) != 0x7f800000)
@@ -138,49 +138,49 @@ static av_always_inline av_const int isnan(float x)
 #endif
 
 #if !HAVE_RINT
-static inline double rint(double x)
+inline double rint(double x)
 {
     return x >= 0 ? floor(x + 0.5) : ceil(x - 0.5);
 }
 #endif /* HAVE_RINT */
 
 #if !HAVE_LRINT
-static av_always_inline av_const long int lrint(double x)
+av_always_inline av_const long int lrint(double x)
 {
     return rint(x);
 }
 #endif /* HAVE_LRINT */
 
 #if !HAVE_LRINTF
-static av_always_inline av_const long int lrintf(float x)
+av_always_inline av_const long int lrintf(float x)
 {
     return (int)(rint(x));
 }
 #endif /* HAVE_LRINTF */
 
 #if !HAVE_ROUND
-static av_always_inline av_const double round(double x)
+av_always_inline av_const double round(double x)
 {
     return (x > 0) ? floor(x + 0.5) : ceil(x - 0.5);
 }
 #endif /* HAVE_ROUND */
 
 #if !HAVE_ROUNDF
-static av_always_inline av_const float roundf(float x)
+av_always_inline av_const float roundf(float x)
 {
     return (x > 0) ? floor(x + 0.5) : ceil(x - 0.5);
 }
 #endif /* HAVE_ROUNDF */
 
 #if !HAVE_TRUNC
-static av_always_inline av_const double trunc(double x)
+av_always_inline av_const double trunc(double x)
 {
     return (x > 0) ? floor(x) : ceil(x);
 }
 #endif /* HAVE_TRUNC */
 
 #if !HAVE_TRUNCF
-static av_always_inline av_const float truncf(float x)
+av_always_inline av_const float truncf(float x)
 {
     return (x > 0) ? floor(x) : ceil(x);
 }

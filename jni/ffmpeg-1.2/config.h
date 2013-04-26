@@ -6,7 +6,7 @@
 #define FFMPEG_DATADIR "/usr/local/share/ffmpeg"
 #define AVCONV_DATADIR "/usr/local/share/ffmpeg"
 #define CC_IDENT "gcc 4.6 (GCC) 20120106 (prerelease)"
-#define av_restrict restrict
+#define av_restrict
 #define EXTERN_PREFIX ""
 #define EXTERN_ASM 
 #define SLIBSUF ".so"
